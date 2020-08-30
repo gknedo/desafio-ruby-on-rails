@@ -21,3 +21,6 @@ Style/WordArray:
 
 Style/SymbolArray:
   Enabled: false
+
+Style/NumericLiterals:
+  Enabled: false
