@@ -15,6 +15,8 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_bot_rails'
   gem 'ffaker'
+  
+  gem 'rspec_api_documentation'
 end
 
 group :development do
@@ -25,5 +27,4 @@ end
 
 group :test do
   gem 'simplecov'
-  gem 'rspec_api_documentation'
 end
