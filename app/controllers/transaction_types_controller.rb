@@ -46,6 +46,6 @@ class TransactionTypesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def transaction_type_params
-      params.require(:transaction_type).permit(:type, :description, :income)
+      params.require(:transaction_type).permit(:code, :description, :income)
     end
 end

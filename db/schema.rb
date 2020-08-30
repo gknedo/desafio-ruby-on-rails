@@ -16,12 +16,12 @@ ActiveRecord::Schema.define(version: 2020_08_30_130531) do
   enable_extension "plpgsql"
 
   create_table "transaction_types", force: :cascade do |t|
-    t.integer "type"
+    t.integer "code"
     t.string "description"
     t.boolean "income", default: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["type"], name: "index_transaction_types_on_type"
+    t.index ["code"], name: "index_transaction_types_on_code"
   end
 
 end
