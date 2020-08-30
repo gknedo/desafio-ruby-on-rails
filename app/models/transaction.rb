@@ -6,4 +6,8 @@ class Transaction < ApplicationRecord
 
   validates_presence_of :card, :cpf, :transacted_at, :value
   validates :value, numericality: { only_integer: true, greater_than: 0 }
+
+  def signed_value
+    value * transaction_type.signal
+  end
 end

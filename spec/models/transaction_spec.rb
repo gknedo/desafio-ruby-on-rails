@@ -88,4 +88,26 @@ RSpec.describe Transaction, type: :model do
       end
     end
   end
+
+  describe 'ao verificar o valor com sinal de uma transação' do
+    subject { transaction.signed_value }
+
+    let!(:transaction) { create(:transaction, transaction_type: transaction_type) }
+
+    context 'do tipo crédito' do
+      let!(:transaction_type) { create(:transaction_type, income: true) }
+
+      it 'é igual ao valor da transação' do
+        expect(subject).to eq transaction.value
+      end
+    end
+
+    context 'do tipo débito' do
+      let!(:transaction_type) { create(:transaction_type, income: false) }
+
+      it 'é igual ao inverso do valor da transação' do
+        expect(subject).to eq -transaction.value
+      end
+    end
+  end
 end
