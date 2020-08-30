@@ -10,4 +10,8 @@ class Transaction < ApplicationRecord
   def signed_value
     value * transaction_type.signal
   end
+
+  def as_json(options = {})
+    super(options).merge({ signed_value: signed_value })
+  end
 end

@@ -7,6 +7,7 @@ class TransactionType < ApplicationRecord
 
   def signal
     return -1 unless income?
+
     1
   end
 end

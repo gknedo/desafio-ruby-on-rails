@@ -73,7 +73,6 @@ RSpec.describe Transaction, type: :model do
     end
 
     context 'sem um valor' do
-
     end
 
     context 'sem um cpf' do
@@ -106,8 +105,16 @@ RSpec.describe Transaction, type: :model do
       let!(:transaction_type) { create(:transaction_type, income: false) }
 
       it 'é igual ao inverso do valor da transação' do
-        expect(subject).to eq -transaction.value
+        expect(subject).to eq(-transaction.value)
       end
+    end
+  end
+
+  describe 'retornando o json de uma transação' do
+    subject { build(:transaction).as_json }
+
+    it 'retorna o valor com sinal' do
+      expect(subject).to have_key :signed_value
     end
   end
 end

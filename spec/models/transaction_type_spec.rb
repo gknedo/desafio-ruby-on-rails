@@ -38,7 +38,7 @@ RSpec.describe TransactionType, type: :model do
       let!(:income) { false }
 
       it 'retorna o valor -1' do
-        expect(subject).to eq -1
+        expect(subject).to eq(-1)
       end
     end
   end
