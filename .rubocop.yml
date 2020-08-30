@@ -1,4 +1,23 @@
 AllCops:
+  NewCops: enable
   Exclude:
-    - bin/*
+    - bin/**/*
     - db/schema.rb
+    - tmp/restart.txt
+
+Metrics/BlockLength:
+  Enabled: true
+  Exclude:
+    - spec/**/*
+
+Style/Documentation:
+  Enabled: false
+
+Lint/AmbiguousBlockAssociation:
+  Enabled: false
+
+Style/WordArray:
+  Enabled: false
+
+Style/SymbolArray:
+  Enabled: false
