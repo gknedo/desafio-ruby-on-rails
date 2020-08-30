@@ -22,4 +22,24 @@ RSpec.describe TransactionType, type: :model do
       end
     end
   end
+
+  describe 'retornando o sinal de um tipo de transação' do
+    subject { build(:transaction_type, income: income).signal }
+
+    context 'de uma transação de crédito' do
+      let!(:income) { true }
+
+      it 'retorna o valor 1' do
+        expect(subject).to eq 1
+      end
+    end
+
+    context 'de uma transação de dédito' do
+      let!(:income) { false }
+
+      it 'retorna o valor -1' do
+        expect(subject).to eq -1
+      end
+    end
+  end
 end
