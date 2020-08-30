@@ -4,3 +4,11 @@ services:
     build: .
     volumes:
       - .:/opt/app
+    ports:
+      - 3000:3000
+    links:
+      - db
+  db:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: mypass
