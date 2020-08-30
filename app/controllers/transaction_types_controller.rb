@@ -40,18 +40,19 @@ class TransactionTypesController < ApplicationController
   # DELETE /transaction_types/1
   def destroy
     return head :not_found unless @transaction_type
-    
+
     @transaction_type.destroy
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_transaction_type
-      @transaction_type = TransactionType.find_by(id: params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def transaction_type_params
-      params.require(:transaction_type).permit(:code, :description, :income)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_transaction_type
+    @transaction_type = TransactionType.find_by(id: params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def transaction_type_params
+    params.require(:transaction_type).permit(:code, :description, :income)
+  end
 end

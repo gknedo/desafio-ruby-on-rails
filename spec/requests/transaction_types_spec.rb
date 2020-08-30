@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe "/transaction_types", type: :request do
-
   describe "GET /index" do
     subject { get transaction_types_url }
 
@@ -71,7 +70,7 @@ RSpec.describe "/transaction_types", type: :request do
       end
 
       it "cria um novo tipo de transação" do
-        expect{ subject }.to change(TransactionType, :count).by(1)
+        expect { subject }.to change(TransactionType, :count).by(1)
       end
     end
 
@@ -84,7 +83,7 @@ RSpec.describe "/transaction_types", type: :request do
       end
 
       it "não cria um novo tipo de transação" do
-        expect{ subject }.to_not change(TransactionType, :count)
+        expect { subject }.to_not change(TransactionType, :count)
       end
     end
   end
@@ -115,7 +114,7 @@ RSpec.describe "/transaction_types", type: :request do
         end
 
         it "altera o objeto existente" do
-          expect{ subject }.to change{transaction_type.reload.description}.to attributes['description']
+          expect { subject }.to change { transaction_type.reload.description }.to attributes['description']
         end
       end
 
@@ -128,7 +127,7 @@ RSpec.describe "/transaction_types", type: :request do
         end
 
         it "não altera o objeto existente" do
-          expect{ subject }.to_not change{transaction_type.reload.attributes}
+          expect { subject }.to_not change { transaction_type.reload.attributes }
         end
       end
     end
@@ -155,7 +154,7 @@ RSpec.describe "/transaction_types", type: :request do
       end
 
       it 'remove o registro' do
-        expect{ subject }.to change(TransactionType, :count).by(-1)
+        expect { subject }.to change(TransactionType, :count).by(-1)
       end
     end
   end
