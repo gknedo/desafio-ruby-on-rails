@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class TransactionTypesController < ApplicationController
   before_action :set_transaction_type, only: [:show, :update, :destroy]
 
