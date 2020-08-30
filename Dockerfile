@@ -8,5 +8,7 @@ RUN bundle install
 
 COPY . .
 
+ENV TZ America/Sao_Paulo
+
 EXPOSE 3000
 CMD rails s -b '0.0.0.0'
