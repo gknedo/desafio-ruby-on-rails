@@ -10,6 +10,8 @@ class TransactionTypesController < ApplicationController
 
   # GET /transaction_types/1
   def show
+    return head :not_found unless @transaction_type
+
     render json: @transaction_type
   end
 
@@ -26,6 +28,8 @@ class TransactionTypesController < ApplicationController
 
   # PATCH/PUT /transaction_types/1
   def update
+    return head :not_found unless @transaction_type
+
     if @transaction_type.update(transaction_type_params)
       render json: @transaction_type
     else
@@ -35,13 +39,15 @@ class TransactionTypesController < ApplicationController
 
   # DELETE /transaction_types/1
   def destroy
+    return head :not_found unless @transaction_type
+    
     @transaction_type.destroy
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_transaction_type
-      @transaction_type = TransactionType.find(params[:id])
+      @transaction_type = TransactionType.find_by(id: params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.
