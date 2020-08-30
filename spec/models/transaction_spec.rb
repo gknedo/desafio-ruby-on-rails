@@ -27,10 +27,52 @@ RSpec.describe Transaction, type: :model do
     end
   end
 
-  context 'sem um valor' do
-    it 'seja inválida' do
-      expect(build(:transaction, value: nil)).to_not be_valid
+  context 'com um valor' do
+    let!(:transaction) { build(:transaction, value: value) }
+
+    context 'nulo' do
+      let!(:value) { nil }
+
+      it 'seja inválida' do
+        expect(transaction).to_not be_valid
+      end
     end
+
+    context 'negativo' do
+      let!(:value) { -1 }
+
+      it 'seja inválida' do
+        expect(transaction).to_not be_valid
+      end
+    end
+
+    context 'zero' do
+      let!(:value) { 0 }
+
+      it 'seja inválida' do
+        expect(transaction).to_not be_valid
+      end
+    end
+
+    context 'decimal' do
+      let!(:value) { 1.5 }
+
+      it 'seja inválida' do
+        expect(transaction).to_not be_valid
+      end
+    end
+
+    context 'positivo' do
+      let!(:value) { 1 }
+
+      it 'seja válida' do
+        expect(transaction).to be_valid
+      end
+    end
+  end
+
+  context 'sem um valor' do
+
   end
 
   context 'sem um cpf' do
