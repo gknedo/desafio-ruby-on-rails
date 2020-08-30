@@ -62,3 +62,11 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
 end
+
+RspecApiDocumentation.configure do |config|
+  config.curl_host = 'localhost:3000'
+  config.curl_headers_to_filter = ['Host', 'Cookie']
+
+  config.request_headers_to_include = []
+  config.response_headers_to_include = []
+end
