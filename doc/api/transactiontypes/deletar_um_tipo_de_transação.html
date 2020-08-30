@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>API Documentation</title>
-  <meta charset="utf-8">
-  <style>
-    
+  <head>
+    <title>TransactionTypes API</title>
+    <meta charset="utf-8">
+    <style>
+      
 body {
   font-family: Helvetica,Arial,sans-serif;
   font-size: 13px;
@@ -39,7 +39,7 @@ pre {
 
 td.required .name:after {
   float: right;
-  content: &quot;required&quot;;
+  content: "required";
   font-weight: normal;
   color: #F08080;
 }
@@ -102,33 +102,34 @@ table th, table td {
   text-align: left;
 }
 
-  </style>
-</head>
-<body>
-<div class="container">
-  <h1>API Documentation</h1>
-  
-  <div class="article">
-    <h2>TransactionTypes</h2>
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>TransactionTypes API</h1>
 
-    <ul>
-      <li>
-        <a href="transactiontypes/alterar_um_tipo_de_transação.html">Alterar um tipo de transação</a>
-      </li>
-      <li>
-        <a href="transactiontypes/criar_tipo_de_transação.html">Criar tipo de transação</a>
-      </li>
-      <li>
-        <a href="transactiontypes/deletar_um_tipo_de_transação.html">Deletar um tipo de transação</a>
-      </li>
-      <li>
-        <a href="transactiontypes/exibir_um_tipo_de_transação.html">Exibir um tipo de transação</a>
-      </li>
-      <li>
-        <a href="transactiontypes/listar_os_tipos_de_transações.html">Listar os tipos de transações</a>
-      </li>
-    </ul>
-  </div>
-</div>
-</body>
+      <div class="article">
+        <h2>Deletar um tipo de transação</h2>
+        <h3>DELETE /transaction_types/1</h3>
+
+
+
+          <h3>Request</h3>
+
+
+          <h4>Route</h4>
+          <pre class="request route highlight">DELETE /transaction_types/1</pre>
+
+
+
+            <h4>cURL</h4>
+            <pre class="request curl">curl &quot;localhost:3000/transaction_types/1&quot; -d &#39;&#39; -X DELETE \
+	-H &quot;Content-Type: application/x-www-form-urlencoded&quot;</pre>
+
+            <h3>Response</h3>
+            <h4>Status</h4>
+            <pre class="response status">204 No Content</pre>
+      </div>
+    </div>
+  </body>
 </html>

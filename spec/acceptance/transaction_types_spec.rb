@@ -12,9 +12,9 @@ resource "TransactionTypes" do
 
   post "/transaction_types" do
     with_options scope: :transaction_type, with_example: true do
-      parameter :code, type: :integer, required: true
-      parameter :description, type: :string, required: true
-      parameter :income, type: :boolean, default: true
+      parameter :code, required: true
+      parameter :description, required: true
+      parameter :income, default: true
     end
 
     let(:code) { 1 }
@@ -24,6 +24,45 @@ resource "TransactionTypes" do
     context '201' do
       example_request "Criar tipo de transação" do
         expect(status).to eq 201
+      end
+    end
+  end
+
+  get "/transaction_types/1" do
+    let!(:transaction_type) { create(:transaction_type, id: 1) }
+    context '200' do
+      example_request "Exibir um tipo de transação" do
+        expect(status).to eq 200
+      end
+    end
+  end
+
+  patch "/transaction_types/1" do
+    let!(:transaction_type) { create(:transaction_type, id: 1) }
+
+    with_options scope: :transaction_type, with_example: true do
+      parameter :code
+      parameter :description
+      parameter :income, default: true
+    end
+
+    let(:code) { 1 }
+    let(:description) { "Descrição da Operação" }
+    let(:income) { true }
+
+    context '200' do
+      example_request "Alterar um tipo de transação" do
+        expect(status).to eq 200
+      end
+    end
+  end
+
+  delete "/transaction_types/1" do
+    let!(:transaction_type) { create(:transaction_type, id: 1) }
+
+    context '200' do
+      example_request "Deletar um tipo de transação" do
+        expect(status).to eq 204
       end
     end
   end

@@ -109,8 +109,8 @@ table th, table td {
       <h1>TransactionTypes API</h1>
 
       <div class="article">
-        <h2>Criar tipo de transação</h2>
-        <h3>POST /transaction_types</h3>
+        <h2>Alterar um tipo de transação</h2>
+        <h3>PATCH /transaction_types/1</h3>
 
           <h3>Parameters</h3>
           <table class="parameters table table-striped table-bordered table-condensed">
@@ -122,7 +122,7 @@ table th, table td {
             </thead>
             <tbody>
               <tr>
-                <td class="required">
+                <td>
                     <span class="name">transaction_type[code]</span>
                 </td>
                 <td>
@@ -130,7 +130,7 @@ table th, table td {
                 </td>
               </tr>
               <tr>
-                <td class="required">
+                <td>
                     <span class="name">transaction_type[description]</span>
                 </td>
                 <td>
@@ -153,27 +153,27 @@ table th, table td {
 
 
           <h4>Route</h4>
-          <pre class="request route highlight">POST /transaction_types</pre>
+          <pre class="request route highlight">PATCH /transaction_types/1</pre>
 
 
             <h4>Body</h4>
             <pre class="request body">transaction_type[code]=1&transaction_type[description]=Descri%C3%A7%C3%A3o+da+Opera%C3%A7%C3%A3o&transaction_type[income]=true</pre>
 
             <h4>cURL</h4>
-            <pre class="request curl">curl &quot;localhost:3000/transaction_types&quot; -d &#39;transaction_type[code]=1&amp;transaction_type[description]=Descri%C3%A7%C3%A3o+da+Opera%C3%A7%C3%A3o&amp;transaction_type[income]=true&#39; -X POST \
+            <pre class="request curl">curl &quot;localhost:3000/transaction_types/1&quot; -d &#39;transaction_type[code]=1&amp;transaction_type[description]=Descri%C3%A7%C3%A3o+da+Opera%C3%A7%C3%A3o&amp;transaction_type[income]=true&#39; -X PATCH \
 	-H &quot;Content-Type: application/x-www-form-urlencoded&quot;</pre>
 
             <h3>Response</h3>
             <h4>Status</h4>
-            <pre class="response status">201 Created</pre>
+            <pre class="response status">200 OK</pre>
               <h4>Body</h4>
               <pre class="response body">{
-  &quot;id&quot;: 342,
+  &quot;id&quot;: 1,
   &quot;code&quot;: 1,
   &quot;description&quot;: &quot;Descrição da Operação&quot;,
   &quot;income&quot;: true,
-  &quot;created_at&quot;: &quot;2020-08-30T15:33:56.995Z&quot;,
-  &quot;updated_at&quot;: &quot;2020-08-30T15:33:56.995Z&quot;
+  &quot;created_at&quot;: &quot;2020-08-30T15:33:57.012Z&quot;,
+  &quot;updated_at&quot;: &quot;2020-08-30T15:33:57.019Z&quot;
 }</pre>
       </div>
     </div>
