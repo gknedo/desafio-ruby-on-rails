@@ -56,5 +56,13 @@ RSpec.describe Store, type: :model do
         expect(subject).to eq(-debit.value)
       end
     end
+
+    describe 'retornando o json de uma loja' do
+      subject { build(:store).as_json }
+
+      it 'retorna o saldo' do
+        expect(subject).to have_key :balance
+      end
+    end
   end
 end

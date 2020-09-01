@@ -6,6 +6,10 @@ class Store < ApplicationRecord
   has_many :transactions
 
   def balance
-    transactions.reduce(0) {|sum, transaction| sum + transaction.signed_value }
+    transactions.reduce(0) { |sum, transaction| sum + transaction.signed_value }
+  end
+
+  def as_json(options = {})
+    super(options).merge({ balance: balance })
   end
 end
