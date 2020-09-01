@@ -22,4 +22,39 @@ RSpec.describe Store, type: :model do
       end
     end
   end
+
+  describe 'o saldo de uma loja' do
+    subject { store.balance }
+    let!(:store) { create(:store) }
+
+    context 'sem transações' do
+      it 'é 0' do
+        expect(subject).to eq 0
+      end
+    end
+
+    context 'com uma transação de crédito' do
+      let!(:credit) { create(:transaction, store: store, income: true) }
+
+      it 'é o valor da transação de crédito' do
+        expect(subject).to eq credit.value
+      end
+
+      context 'e uma transação de débito' do
+        let!(:debit) { create(:transaction, store: store, income: false) }
+
+        it 'é o valor da transação de crébito menos a transação de débito' do
+          expect(subject).to eq(credit.value - debit.value)
+        end
+      end
+    end
+
+    context 'com uma transação de débito' do
+      let!(:debit) { create(:transaction, store: store, income: false) }
+
+      it 'é o inverso do valor da transação de débito' do
+        expect(subject).to eq(-debit.value)
+      end
+    end
+  end
 end
