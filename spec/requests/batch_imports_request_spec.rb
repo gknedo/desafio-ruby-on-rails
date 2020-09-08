@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-RSpec.describe "BatchImports", type: :request do
+RSpec.describe 'BatchImports', type: :request do
   describe 'GET /index' do
     subject { get batch_imports_url }
 

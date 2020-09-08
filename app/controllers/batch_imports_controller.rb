@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class BatchImportsController < ApplicationController
   before_action :set_batch_import, only: [:show]
 

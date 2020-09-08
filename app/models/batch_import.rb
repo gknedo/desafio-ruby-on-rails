@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class BatchImport < ApplicationRecord
   before_create :set_defaults
 
@@ -7,6 +9,7 @@ class BatchImport < ApplicationRecord
   }
 
   private
+
   def set_defaults
     self.status ||= 1
   end
