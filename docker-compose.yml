@@ -8,6 +8,16 @@ services:
       - 3000:3000
     links:
       - db
+
+  frontend:
+    build: ./frontend
+    tty: true
+    volumes:
+      - ./frontend:/opt/app
+    ports:
+      - 8080:3000
+    links:
+      - backend
   db:
     image: postgres
     environment:
