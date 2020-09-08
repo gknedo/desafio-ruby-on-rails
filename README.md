@@ -8,7 +8,8 @@ Desafio prático da bycoders feito por Gustavo Canedo
 
 ## Setup
 Para configurar sua base de desenvolvimento ou resetá-la ao estado original, execute:
-`docker-compose run backend setup`
+`chmod +x setup.sh`
+`./setup.sh`
 
 ## Testes
 Para executar os testes e/ou verificar sua cobertura:
