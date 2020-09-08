@@ -1,0 +1,2 @@
+class BatchImport < ApplicationRecord
+end
