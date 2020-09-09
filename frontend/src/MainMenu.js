@@ -5,8 +5,8 @@ import MainMenuDropdown from './MainMenuDropdown';
 const MainMenu = ({setCurrentPage}) => {
 
   const transactionTypesItems = {
-    'tranction_type_list': 'Listar Tipos',
-    'tranction_type_create': 'Adicionar Tipo'
+    'transaction_type_list': 'Listar Tipos',
+    'transaction_type_create': 'Adicionar Tipo'
   }
   const storeItems = {
     'store_list': 'Listar Lojas',
