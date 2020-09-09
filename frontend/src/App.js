@@ -2,6 +2,7 @@ import React from 'react';
 import MainMenu from './MainMenu';
 import TransactionTypeList from './TransactionTypeList';
 import TransactionList from './TransactionList';
+import BatchImportList from './BatchImportList';
 import StoreList from './StoreList';
 
 function App() {
@@ -17,6 +18,10 @@ function App() {
         return <TransactionList/>;
       case 'store_list':
         return <StoreList/>;
+      case 'batch_import_list':
+        return <BatchImportList/>;
+      case 'batch_import_create':
+        return <BatchImportList createEnabled/>;
       default:
         return 'Funcionalidade não implementada'
     }
