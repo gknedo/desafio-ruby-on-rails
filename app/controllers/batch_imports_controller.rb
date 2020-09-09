@@ -19,12 +19,15 @@ class BatchImportsController < ApplicationController
 
   # POST /batch_imports
   def create
-    @batch_import = BatchImport.new(batch_import_params)
-
-    if @batch_import.save
+    file = batch_import_params[:file]
+    if file
+      @batch_import = BatchImport.create!
+      Thread.new do
+        @batch_import.import!(file)
+      end
       render json: @batch_import, status: :created, location: @batch_import
     else
-      render json: @batch_import.errors, status: :unprocessable_entity
+      render json: ['Nenhum arquivo disponibilizado'], status: :unprocessable_entity
     end
   end
 
@@ -37,6 +40,6 @@ class BatchImportsController < ApplicationController
 
   # Only allow a trusted parameter "white list" through.
   def batch_import_params
-    params.require(:batch_import).permit(:name, :owner_name)
+    params.permit(:file)
   end
 end

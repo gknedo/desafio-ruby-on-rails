@@ -8,6 +8,12 @@ class BatchImport < ApplicationRecord
     completed: 2
   }
 
+  def import! file
+    File.open(file.path, "r").each_line do |line|
+      true
+    end
+  end
+
   private
 
   def set_defaults

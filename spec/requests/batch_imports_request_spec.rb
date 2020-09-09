@@ -60,10 +60,10 @@ RSpec.describe 'BatchImports', type: :request do
   end
 
   describe 'POST /create' do
-    subject { post batch_imports_url, params: { batch_import: attributes } }
+    subject { post batch_imports_url, params: attributes }
 
     context 'com atributos válidos' do
-      let!(:attributes) { build(:batch_import).attributes }
+      let!(:attributes) { { file: File.open('/opt/app/CNAB.txt') } }
 
       it 'retorna criado' do
         subject
@@ -76,14 +76,14 @@ RSpec.describe 'BatchImports', type: :request do
     end
 
     context 'com atributos inválidos' do
-      let!(:attributes) { build(:batch_import, name: nil).attributes }
+      let!(:attributes) { {} }
 
-      xit 'retorna erro' do
+      it 'retorna erro' do
         subject
         expect(response).to have_http_status(:unprocessable_entity)
       end
 
-      xit 'não cria uma nova importação' do
+      it 'não cria uma nova importação' do
         expect { subject }.to_not change(BatchImport, :count)
       end
     end
