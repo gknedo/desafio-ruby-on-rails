@@ -116,5 +116,13 @@ RSpec.describe Transaction, type: :model do
     it 'retorna o valor com sinal' do
       expect(subject).to have_key :signed_value
     end
+
+    it 'retorna seu tipo de transação' do
+      expect(subject).to have_key :transaction_type
+    end
+
+    it 'retorna sua loja' do
+      expect(subject).to have_key :store
+    end
   end
 end

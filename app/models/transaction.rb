@@ -12,6 +12,6 @@ class Transaction < ApplicationRecord
   end
 
   def as_json(options = {})
-    super(options).merge({ signed_value: signed_value })
+    super(options).merge({ signed_value: signed_value, store: store, transaction_type: transaction_type })
   end
 end
