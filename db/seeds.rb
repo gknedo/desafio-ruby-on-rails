@@ -9,3 +9,5 @@ TransactionType.create!(code: 6, description: 'Vendas', income: true)
 TransactionType.create!(code: 7, description: 'Recebimento TED Entrada', income: true)
 TransactionType.create!(code: 8, description: 'Recebimento DOC Entrada', income: true)
 TransactionType.create!(code: 9, description: 'Aluguel', income: false)
+
+Store.create!(name: 'Loja de Exemplo', owner_name: 'Dono da Loja')
