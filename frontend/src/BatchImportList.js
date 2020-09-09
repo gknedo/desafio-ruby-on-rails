@@ -1,19 +1,45 @@
 import React from 'react';
 import axios from 'axios'
-import {Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper} from '@material-ui/core';
+import {Button, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper} from '@material-ui/core';
 import {round} from './utils'
 
 const BatchImportList = ({createEnabled}) => {
   const [batchImportList, setBatchImportList] = React.useState([]);
   const [loading, setLoading] = React.useState(true);
 
-  React.useEffect(() => {
+  const loadBatchList = () => {
     axios.get('http://localhost:3000/batch_imports').then((response) => {
       setLoading(false);
       setBatchImportList(response.data);
-    })
+    });
+  }
+
+  React.useEffect(() => {
+    loadBatchList();
   }, []);
 
+  const [file, setFile] = React.useState();
+
+  const onChange = (e) => {
+    setFile(e.target.files[0]);
+  }
+
+  const onFormSubmit = (e) => {
+    e.preventDefault();
+    let formData = new FormData();
+    if (file) {
+      setLoading(true);
+
+      formData.append("file", file);
+      fetch('http://localhost:3000/batch_imports', {
+        method: 'POST',
+        body: formData
+      }).then((response) => {
+        loadBatchList();
+        setFile(null);
+      });
+    }
+  }
 
   return (
     <>
@@ -37,12 +63,15 @@ const BatchImportList = ({createEnabled}) => {
                 );
               })
             }
-            {loading && 'Carregando...'}
           </TableBody>
         </Table>
       </TableContainer>
+      {loading && 'Carregando...'}
       { createEnabled &&
-        'Oi'
+        <form onSubmit={onFormSubmit}>
+          <input type="file" label="Selecionar Arquivo" onChange={onChange}/>
+          <Button type="submit">Enviar</Button>
+        </form>
       }
     </>
   );
