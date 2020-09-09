@@ -1,5 +1,6 @@
 import React from 'react';
 import MainMenu from './MainMenu';
+import TransactionTypeList from './TransactionTypeList';
 
 function App() {
   const [currentPage, setCurrentPage] = React.useState('none');
@@ -7,7 +8,7 @@ function App() {
   return (
     <>
       <MainMenu setCurrentPage={setCurrentPage}/>
-      {currentPage}
+      {currentPage == 'tranction_type_list' && <TransactionTypeList/>}
     </>
   );
 }
