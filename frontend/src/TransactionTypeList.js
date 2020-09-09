@@ -13,8 +13,6 @@ const TransactionTypeList = () => {
     })
   }, []);
 
-  if(loading == true) return 'Carregando...';
-
   return (
     <TableContainer component={Paper}>
       <Table stickyHeader>
@@ -41,6 +39,7 @@ const TransactionTypeList = () => {
               );
             })
           }
+          {loading && 'Carregando...'}
         </TableBody>
       </Table>
     </TableContainer>

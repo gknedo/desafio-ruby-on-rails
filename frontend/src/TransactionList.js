@@ -14,8 +14,6 @@ const TransactionList = () => {
     })
   }, []);
 
-  if(loading == true) return 'Carregando...';
-
   return (
     <TableContainer component={Paper}>
       <Table stickyHeader>
@@ -45,10 +43,13 @@ const TransactionList = () => {
             })
           }
 
-          <TableRow>
-            <TableCell colSpan={4}><strong>Total</strong></TableCell>
-            <TableCell align="right"><strong>R$ {round(transactionList.reduce((acc, curr) => { return curr.signed_value + acc }, 0)/100.0, 2).toFixed(2)}</strong></TableCell>
-          </TableRow>
+          { !loading &&
+            <TableRow>
+              <TableCell colSpan={4}><strong>Total</strong></TableCell>
+              <TableCell align="right"><strong>R$ {round(transactionList.reduce((acc, curr) => { return curr.signed_value + acc }, 0)/100.0, 2).toFixed(2)}</strong></TableCell>
+            </TableRow>
+          }
+          {loading && 'Carregando...'}
         </TableBody>
       </Table>
     </TableContainer>
