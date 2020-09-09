@@ -17,7 +17,7 @@ const StoreList = () => {
 
   return (
     <TableContainer component={Paper}>
-      <Table>
+      <Table stickyHeader>
         <TableHead>
           <TableRow>
             <TableCell>ID</TableCell>

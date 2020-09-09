@@ -18,13 +18,14 @@ const TransactionList = () => {
 
   return (
     <TableContainer component={Paper}>
-      <Table>
+      <Table stickyHeader>
         <TableHead>
           <TableRow>
             <TableCell>ID</TableCell>
-            <TableCell>Loja</TableCell>
             <TableCell>Natureza</TableCell>
+            <TableCell>Loja</TableCell>
             <TableCell>CPF</TableCell>
+            <TableCell align='right'>Valor</TableCell>
             <TableCell></TableCell>
           </TableRow>
         </TableHead>
@@ -37,12 +38,17 @@ const TransactionList = () => {
                   <TableCell>{transaction.transaction_type.description}</TableCell>
                   <TableCell>{transaction.store.name}</TableCell>
                   <TableCell>{transaction.cpf}</TableCell>
-                  <TableCell>R$ {round(transaction.signed_value/100.0, 2).toFixed(2)}</TableCell>
-                  <TableCell>AÇÕES</TableCell>
+                  <TableCell align='right'>R$ {round(transaction.signed_value/100.0, 2).toFixed(2)}</TableCell>
+                  <TableCell align='right'>AÇÕES</TableCell>
                 </TableRow>
               );
             })
           }
+
+          <TableRow>
+            <TableCell colSpan={4}><strong>Total</strong></TableCell>
+            <TableCell align="right"><strong>R$ {round(transactionList.reduce((acc, curr) => { return curr.signed_value + acc }, 0)/100.0, 2).toFixed(2)}</strong></TableCell>
+          </TableRow>
         </TableBody>
       </Table>
     </TableContainer>
