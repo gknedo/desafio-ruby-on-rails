@@ -45,3 +45,5 @@ Pontos que poderiam ter sido feitos de uma forma mais elaborada para um projeto 
 - Redux para uma melhor compartilhamento de contexto entre componentes da aplicação
 - Atomic Design para uma melhor organização dos componentes do projeto
 - Melhor layout como um todo
+- Testes de componentes com Jest
+- Linter para garantir padrão de escrita de código
