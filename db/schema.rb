@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 2020_09_08_200637) do
   enable_extension "plpgsql"
 
   create_table "batch_imports", force: :cascade do |t|
-    t.integer "status", default: 1
+    t.integer "status"
     t.datetime "completed_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
