@@ -34,5 +34,14 @@ Pontos que considerei desafiadores durante a execução do projeto:
 
 ## Oportunidades de Melhoria
 Pontos que poderiam ter sido feitos de uma forma mais elaborada para um projeto real e que pela falta de tempo não foram feitos nesse teste:
+
+### Backend
 - Adicionar um serializer ou json_builder para não precisar sobrescrever o as_json das models para retornar atributos customizáveis no json.
 - Melhorar a documentação para que ela tenha melhores exemplos do retorno esperado dos endpoints da API.
+
+### Frontend
+- Melhor estruturação do projeto
+- React Navigation para um gerenciamento de página mais eficiente
+- Redux para uma melhor compartilhamento de contexto entre componentes da aplicação
+- Atomic Design para uma melhor organização dos componentes do projeto
+- Melhor layout como um todo
