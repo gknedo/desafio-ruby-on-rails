@@ -9,7 +9,3 @@ TransactionType.create!(code: 6, description: 'Vendas', income: true)
 TransactionType.create!(code: 7, description: 'Recebimento TED Entrada', income: true)
 TransactionType.create!(code: 8, description: 'Recebimento DOC Entrada', income: true)
 TransactionType.create!(code: 9, description: 'Aluguel', income: false)
-
-store = FactoryBot.create(:store, name: 'Loja de Exemplo')
-FactoryBot.create_list(:transaction, 5, store: store, transaction_type: TransactionType.first)
-FactoryBot.create_list(:transaction, 3, store: store, transaction_type: TransactionType.last)
