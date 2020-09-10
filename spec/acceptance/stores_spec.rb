@@ -49,7 +49,7 @@ resource 'Stores' do
     let(:owner_name) { 'Nome do dono da loja' }
 
     context '200' do
-      example_request 'Alterar uma' do
+      example_request 'Alterar uma loja' do
         expect(status).to eq 200
       end
     end
