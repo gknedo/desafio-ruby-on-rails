@@ -23,8 +23,8 @@ Para gerar uma documentação atualizada com base nos testes de aceitação:
 Para subir a aplicação:
 `docker-compose up frontend`
 
-O frontend estará em execução em http://localhost
-Apesar de não necessário, o backend também está exposto em: http://localhost:3000
+O frontend estará em execução em http://localhost:8080
+O backend estará em: http://localhost:3000
 
 # Considerações
 ## Desafios
@@ -44,6 +44,7 @@ Pontos que poderiam ter sido feitos de uma forma mais elaborada para um projeto 
 - React Navigation para um gerenciamento de página mais eficiente
 - Redux para uma melhor compartilhamento de contexto entre componentes da aplicação
 - Atomic Design para uma melhor organização dos componentes do projeto
+- Componentes menores para melhorar o reaproveitamento (como no caso de listas)
 - Melhor layout como um todo
 - Testes de componentes com Jest
 - Linter para garantir padrão de escrita de código
