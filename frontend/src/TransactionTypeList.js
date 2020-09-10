@@ -34,7 +34,7 @@ const TransactionTypeList = () => {
                     <TableCell>{transactionType.id}</TableCell>
                     <TableCell>{transactionType.code}</TableCell>
                     <TableCell>{transactionType.description}</TableCell>
-                    <TableCell>{transactionType.income == true ? 'Crédito' : 'Débito'}</TableCell>
+                    <TableCell>{transactionType.income === true ? 'Crédito' : 'Débito'}</TableCell>
                     <TableCell>AÇÕES</TableCell>
                   </TableRow>
                 );

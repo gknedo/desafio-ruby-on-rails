@@ -1,7 +1,6 @@
 import React from 'react';
 import axios from 'axios'
 import {Button, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper} from '@material-ui/core';
-import {round} from './utils'
 
 const BatchImportList = ({createEnabled}) => {
   const [batchImportList, setBatchImportList] = React.useState([]);

@@ -17,7 +17,6 @@ import {
 import { KeyboardArrowUp, KeyboardArrowDown } from '@material-ui/icons';
 
 const Row = ({id, name, ownerName, transactions}) => {
-  console.log(transactions);
   const [open, setOpen] = React.useState(false);
   const balance = round(transactions.reduce((acc, curr) => { return curr.signed_value + acc }, 0)/100.0, 2).toFixed(2)
   return (
@@ -88,7 +87,7 @@ const StoreList = () => {
   }, []);
 
   const getTransactions = (storeId) => {
-    return transactionList.filter((transaction) => transaction.store_id == storeId);
+    return transactionList.filter((transaction) => transaction.store_id === storeId);
   }
 
   return (
