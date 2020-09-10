@@ -56,6 +56,7 @@ const BatchImportList = ({createEnabled}) => {
               batchImportList.map((batch_import) => {
                 return(
                   <TableRow key={batch_import.id}>
+                    <TableCell>{batch_import.id}</TableCell>
                     <TableCell>{batch_import.status}</TableCell>
                     <TableCell align='right'>AÇÕES</TableCell>
                   </TableRow>
