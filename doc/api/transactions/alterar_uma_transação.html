@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>TransactionTypes API</title>
+    <title>Transactions API</title>
     <meta charset="utf-8">
     <style>
       
@@ -106,11 +106,11 @@ table th, table td {
   </head>
   <body>
     <div class="container">
-      <h1>TransactionTypes API</h1>
+      <h1>Transactions API</h1>
 
       <div class="article">
-        <h2>Alterar um tipo de transação</h2>
-        <h3>PATCH /transaction_types/1</h3>
+        <h2>Alterar uma transação</h2>
+        <h3>PATCH /transactions/1</h3>
 
           <h3>Parameters</h3>
           <table class="parameters table table-striped table-bordered table-condensed">
@@ -123,26 +123,50 @@ table th, table td {
             <tbody>
               <tr>
                 <td>
-                    <span class="name">transaction_type[code]</span>
+                    <span class="name">transaction[store_id]</span>
                 </td>
                 <td>
-                  <span class="description">Transaction type code</span>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                    <span class="name">transaction_type[description]</span>
-                </td>
-                <td>
-                  <span class="description">Transaction type description</span>
+                  <span class="description">Transaction store</span>
                 </td>
               </tr>
               <tr>
                 <td>
-                    <span class="name">transaction_type[income]</span>
+                    <span class="name">transaction[transaction_type_id]</span>
                 </td>
                 <td>
-                  <span class="description">Transaction type income</span>
+                  <span class="description">Transaction transaction type</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">transaction[value]</span>
+                </td>
+                <td>
+                  <span class="description">Transaction value</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">transaction[cpf]</span>
+                </td>
+                <td>
+                  <span class="description">Transaction cpf</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">transaction[card]</span>
+                </td>
+                <td>
+                  <span class="description">Transaction card</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <span class="name">transaction[transacted_at]</span>
+                </td>
+                <td>
+                  <span class="description">Transaction transacted at</span>
                 </td>
               </tr>
             </tbody>
@@ -153,28 +177,21 @@ table th, table td {
 
 
           <h4>Route</h4>
-          <pre class="request route highlight">PATCH /transaction_types/1</pre>
+          <pre class="request route highlight">PATCH /transactions/1</pre>
 
 
             <h4>Body</h4>
-            <pre class="request body">transaction_type[code]=1&transaction_type[description]=Descri%C3%A7%C3%A3o+da+Opera%C3%A7%C3%A3o&transaction_type[income]=true</pre>
+            <pre class="request body">transaction[store_id]=143&transaction[transaction_type_id]=147&transaction[value]=99999&transaction[cpf]=99999999999&transaction[card]=9999999999999999&transaction[transacted_at]=2020-09-10+01%3A57%3A27+UTC</pre>
 
             <h4>cURL</h4>
-            <pre class="request curl">curl &quot;localhost:3000/transaction_types/1&quot; -d &#39;transaction_type[code]=1&amp;transaction_type[description]=Descri%C3%A7%C3%A3o+da+Opera%C3%A7%C3%A3o&amp;transaction_type[income]=true&#39; -X PATCH \
+            <pre class="request curl">curl &quot;localhost:3000/transactions/1&quot; -d &#39;transaction[store_id]=143&amp;transaction[transaction_type_id]=147&amp;transaction[value]=99999&amp;transaction[cpf]=99999999999&amp;transaction[card]=9999999999999999&amp;transaction[transacted_at]=2020-09-10+01%3A57%3A27+UTC&#39; -X PATCH \
 	-H &quot;Content-Type: application/x-www-form-urlencoded&quot;</pre>
 
             <h3>Response</h3>
             <h4>Status</h4>
             <pre class="response status">200 OK</pre>
               <h4>Body</h4>
-              <pre class="response body">{
-  &quot;id&quot;: 1,
-  &quot;code&quot;: 1,
-  &quot;description&quot;: &quot;Descrição da Operação&quot;,
-  &quot;income&quot;: true,
-  &quot;created_at&quot;: &quot;2020-09-10T01:57:27.393Z&quot;,
-  &quot;updated_at&quot;: &quot;2020-09-10T01:57:27.399Z&quot;
-}</pre>
+              <pre class="response body">[binary data]</pre>
       </div>
     </div>
   </body>

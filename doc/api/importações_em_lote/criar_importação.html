@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Stores API</title>
+    <title>Importações em Lote API</title>
     <meta charset="utf-8">
     <style>
       
@@ -106,11 +106,11 @@ table th, table td {
   </head>
   <body>
     <div class="container">
-      <h1>Stores API</h1>
+      <h1>Importações em Lote API</h1>
 
       <div class="article">
-        <h2>Alterar uma</h2>
-        <h3>PATCH /stores/1</h3>
+        <h2>Criar importação</h2>
+        <h3>POST /batch_imports</h3>
 
           <h3>Parameters</h3>
           <table class="parameters table table-striped table-bordered table-condensed">
@@ -122,19 +122,11 @@ table th, table td {
             </thead>
             <tbody>
               <tr>
-                <td>
-                    <span class="name">store[name]</span>
+                <td class="required">
+                    <span class="name">file</span>
                 </td>
                 <td>
-                  <span class="description">Store name</span>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                    <span class="name">store[owner_name]</span>
-                </td>
-                <td>
-                  <span class="description">Store owner name</span>
+                  <span class="description"> file</span>
                 </td>
               </tr>
             </tbody>
@@ -145,19 +137,19 @@ table th, table td {
 
 
           <h4>Route</h4>
-          <pre class="request route highlight">PATCH /stores/1</pre>
+          <pre class="request route highlight">POST /batch_imports</pre>
 
 
             <h4>Body</h4>
-            <pre class="request body">store[name]=Nome+da+loja&store[owner_name]=Nome+do+dono+da+loja</pre>
+            <pre class="request body">file=%23%3CFile%3A0x0000563a9ff38ab0%3E</pre>
 
             <h4>cURL</h4>
-            <pre class="request curl">curl &quot;localhost:3000/stores/1&quot; -d &#39;store[name]=Nome+da+loja&amp;store[owner_name]=Nome+do+dono+da+loja&#39; -X PATCH \
+            <pre class="request curl">curl &quot;localhost:3000/batch_imports&quot; -d &#39;file=%23%3CFile%3A0x0000563a9ff38ab0%3E&#39; -X POST \
 	-H &quot;Content-Type: application/x-www-form-urlencoded&quot;</pre>
 
             <h3>Response</h3>
             <h4>Status</h4>
-            <pre class="response status">200 OK</pre>
+            <pre class="response status">201 Created</pre>
               <h4>Body</h4>
               <pre class="response body">[binary data]</pre>
       </div>
