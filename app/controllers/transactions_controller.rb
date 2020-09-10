@@ -24,7 +24,6 @@ class TransactionsController < ApplicationController
     if @transaction.save
       render json: @transaction, status: :created, location: @transaction
     else
-      p @transaction.errors
       render json: @transaction.errors, status: :unprocessable_entity
     end
   end
