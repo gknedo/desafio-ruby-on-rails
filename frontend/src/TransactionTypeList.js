@@ -14,35 +14,37 @@ const TransactionTypeList = () => {
   }, []);
 
   return (
-    <TableContainer component={Paper}>
-      <Table stickyHeader>
-        <TableHead>
-          <TableRow>
-            <TableCell>ID</TableCell>
-            <TableCell>Código</TableCell>
-            <TableCell>Descrição</TableCell>
-            <TableCell>Natureza</TableCell>
-            <TableCell></TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {
-            transactionTypeList.map((transactionType) => {
-              return(
-                <TableRow key={transactionType.id}>
-                  <TableCell>{transactionType.id}</TableCell>
-                  <TableCell>{transactionType.code}</TableCell>
-                  <TableCell>{transactionType.description}</TableCell>
-                  <TableCell>{transactionType.income == true ? 'Crédito' : 'Débito'}</TableCell>
-                  <TableCell>AÇÕES</TableCell>
-                </TableRow>
-              );
-            })
-          }
-          {loading && 'Carregando...'}
-        </TableBody>
-      </Table>
-    </TableContainer>
+    <>
+      <TableContainer component={Paper}>
+        <Table stickyHeader>
+          <TableHead>
+            <TableRow>
+              <TableCell>ID</TableCell>
+              <TableCell>Código</TableCell>
+              <TableCell>Descrição</TableCell>
+              <TableCell>Natureza</TableCell>
+              <TableCell></TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {
+              transactionTypeList.map((transactionType) => {
+                return(
+                  <TableRow key={transactionType.id}>
+                    <TableCell>{transactionType.id}</TableCell>
+                    <TableCell>{transactionType.code}</TableCell>
+                    <TableCell>{transactionType.description}</TableCell>
+                    <TableCell>{transactionType.income == true ? 'Crédito' : 'Débito'}</TableCell>
+                    <TableCell>AÇÕES</TableCell>
+                  </TableRow>
+                );
+              })
+            }
+          </TableBody>
+        </Table>
+      </TableContainer>
+      {loading && 'Carregando...'}
+    </>
   );
 }
 
